@@ -25,8 +25,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Akaya Kanadaka', cursive; 
-    /* font-family: 'Roboto Slab', serif; */
+    /* font-family: 'Akaya Kanadaka', cursive;  */
+    font-family: 'Roboto Slab', serif;
     box-sizing: border-box;
 
 }
@@ -65,8 +65,15 @@ nav {
 #bigA {
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width: 30%;
+    width: 30%;
     max-height: 120px;
+
+}
+.container-img{
+    width: 30%;
+    height: 120px;
+    cursor:pointer;
+    text-align: center;
 }
 .nav-panel {
     width: 100%;
@@ -83,14 +90,22 @@ nav {
 
 .nav-panel-item {
     width: 25%;
-    background-color: (--dark-accent-color);
-    height: 40px;
+    background-color: rgb(212, 212, 212);
+    color: black;
+    height: 60px;
     text-align: center;
     font-size: 20px;
-    margin: 10px 0px 0px 0px;
+    padding: 15px 0px 0px 0px; 
+    transition: 0s background-color color;
+    transition-duration: 0.25s;
 
 }
 
+.nav-panel-item:hover {
+    cursor: pointer;
+    background-color: black;
+    color: var(--feuerrot);
+}
 @media only screen and (max-width: 786px){
     nav #topNavRow {
         height: unset;

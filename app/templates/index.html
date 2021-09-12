@@ -21,14 +21,16 @@
         <div class="container" id="navContainer">
             <div class="nav-panel" id="topNavRow">
                 <h1 class="nav-header">134 MDH "Arbitrium" im. Andrzeja Romockiego "Morro" </h1>
-                <img id="bigA" src="{{url_for('static', filename='img/bigA_red_transparent.png')}}"/>
+                <a class="container-img" id="bigAContainer" href="{{ url_for('index') }}">
+                    <img id="bigA" src="{{url_for('static', filename='img/bigA_red_transparent.png')}}"/>
+                </a>
                 <h1 class="nav-header">placeholder textowy</h1>
             </div>
             <div class="nav-panel" id="bottomNavRow">
-                <a class="nav-panel-item" id="home">Home</a>
-                <a class="nav-panel-item" id="więcej">Home</a>
-                <a class="nav-panel-item" id="zbiórki">Home</a>
-                <a class="nav-panel-item" id="posty">Home</a>
+                <a class="nav-panel-item" id="posts">aktualności</a>
+                <a class="nav-panel-item" id="about">kim jesteśmy?</a>
+                <a class="nav-panel-item" id="documents">dokumenty</a>
+                <a class="nav-panel-item" id="more">więcej</a>
             </div>
             
         </div>
