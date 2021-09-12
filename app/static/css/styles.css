@@ -25,8 +25,8 @@
 *{
     margin: 0;
     padding: 0;
-    /* font-family: 'Akaya Kanadaka', cursive; */
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Akaya Kanadaka', cursive; 
+    /* font-family: 'Roboto Slab', serif; */
     box-sizing: border-box;
 
 }
