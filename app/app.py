@@ -11,6 +11,9 @@ def main():
 
     @app.route("/")
     def index():
-        return render_template('index.html')
+        return render_template('index.html.jinja')
 
+    @app.route("/posts")
+    def posts():
+        return render_template('posts.html.jinja')
     app.run()
