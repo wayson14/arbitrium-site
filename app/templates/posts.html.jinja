@@ -1,7 +1,26 @@
 {% extends "base.html.jinja" %}
+{%block head%}
+    <script
+        type="text/javascript"
+        src="{{url_for('static', filename='js/posts.js') }}">
+    </script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/posts.css') }}">
+{%endblock%}
 
 {% block title %}Posts 134{% endblock %}
 
 {% block content %}
 
+{% for post in post_list %}
+<div class="post-container" id="post-container-{{loop.index}}">
+    <h1 class="post-header" id="post-header-{{loop.index}}">{{post.title}}</h1>
+    <div class="post-date" id="post-date-{{loop.index}}">{{post['time']}}</div>
+    <div class="post-text">{{post['text']}}</div>
+    <div class="post-image-container" id="post-image-container{{loop.index}}"
+    {% for url in post['images_urls'] %}
+        <img class="post-image" id="post-image-{{loop.index}}" src="{{url}}">
+    {% endfor %}
+</div>
+
+{% endfor %}
 {% endblock %}

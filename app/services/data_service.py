@@ -4,9 +4,9 @@
 
 
 import mongoengine
-import data.mongo_setup as mongo_setup
-from services.scraper import get_posts_from_page
-from data.posts import Post
+import app.data.mongo_setup as mongo_setup
+from app.services.scraper import get_posts_from_page
+from app.data.posts import Post
 
 
 ### Remember the same properities must be specified in Post class in db document form.
@@ -57,3 +57,7 @@ def get_post_by_index(idx) -> Post:
         post = all_posts[-1]
     
     return post
+
+def get_all_posts() -> list:
+    all_posts = Post.objects().all()
+    return all_posts 

@@ -1,0 +1,34 @@
+:root{
+
+    --light-accent-color: #f0f1f5;
+    --dark-accent-color: #333;
+    --main-grey: #555;
+    --milano-red: #c70e05;
+    --marigold-yellow: #f9da7b;
+    --sepia-black: #2f0404;
+    --rustic-red: #440404;
+    --light-milano-red: #bf2a05;
+    --feuerrot: #ed1c24;
+}
+
+@media only screen and (max-width: 786px){
+
+}
+/* Singular post */
+.post-container{
+    max-width: 100%;
+
+}
+.post-header{
+    pass;
+}
+.post-date{
+    pass;
+}
+.post-text{
+    pass;
+}
+.post-image{
+    justify-self: center;
+    max-width: 80%;
+}

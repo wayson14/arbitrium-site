@@ -2,11 +2,12 @@ import datetime
 from types import TracebackType
 from dateutil import parser
 import mongoengine
-import services.scraper as scraper
-import data.mongo_setup as mongo_setup
-from data.posts import Post
 import traceback
-import services.data_service as svc
+
+import app.services.data_service as svc
+import app.services.scraper as scraper
+import app.data.mongo_setup as mongo_setup
+from app.data.posts import Post
 
 def main():
     mongo_setup.global_init()

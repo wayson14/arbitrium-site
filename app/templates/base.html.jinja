@@ -13,7 +13,12 @@
         type="text/css"
         rel="stylesheet" 
     />
-    
+    <script
+        type="text/javascript"
+        src="{{url_for('static', filename='js/main.js') }}">
+    </script>
+    {%block head%}
+    {%endblock%}
     <title>{%block title%} {%endblock%}</title>
 </head>
 <body>
@@ -44,10 +49,7 @@
         </div>
     </div>
 
-    <script
-        type="text/javascript"
-        src="{{url_for('static', filename='js/main.js') }}">
-    </script>
+    
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="h1xoYrYj"></script>
 </body>
