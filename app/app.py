@@ -16,11 +16,9 @@ def main():
         mongo_setup.global_init()
         print('Initialized database.')
 
-    @app.route("/")
-    def index():
-        return render_template('index.html.jinja')
+    @app.route('/', defaults={'path': ''})
+    @app.route('/<path:path>')
+    def index(path):
+        return render_template('index.html')
 
-    @app.route("/posts")
-    def posts():
-        return render_template('posts.html.jinja', post_list = svc.get_all_posts())
     app.run()
