@@ -17,16 +17,25 @@
 /* Singular post */
 .post-container{
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 
 }
 .post-header{
-    pass;
+    align-self:flex-start;
 }
 .post-date{
     pass;
 }
 .post-text{
     pass;
+}
+.post-image-container{
+    justify-self: center;
+    max-width: 80%;
+    text-align: center;
 }
 .post-image{
     justify-self: center;
