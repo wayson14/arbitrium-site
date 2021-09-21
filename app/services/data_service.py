@@ -54,7 +54,9 @@ def get_post_by_index(idx) -> Post:
     if idx < len(all_posts):
         post = all_posts[idx]
     else:
-        post = all_posts[-1]
+        for i in all_posts:
+            post = i
+        
     
     return post
 
