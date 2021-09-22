@@ -44,21 +44,7 @@ class Post(Resource):
                 
         except Exception as err:
             return f"Error: {traceback.format_exc}", 500
-            print(traceback.format_exc())
-        
-        # response = json.dumps(response)
-        print('-'*30)
-        print()
-        print(response)
-        print()
-        print('-'*30)
-        print()
-        # JSONEncoder().encode(response)
-        response = {"white" : "black"}
-        # response = make_response(jsonify(response), 200)
-        # response.headers["Content-Type"] = "application/json"
-
-        return response
+        return make_response(jsonify(response), 200)
 
     def post(self):
         return "Not implemented yet!", 501
