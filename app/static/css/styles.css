@@ -12,6 +12,8 @@
     --rustic-red: #440404;
     --light-milano-red: #bf2a05;
     --feuerrot: #ed1c24;
+
+    --middle-div-max: 500px;
 }
 
 
@@ -32,7 +34,7 @@
 }
 
 body {
-    height: 1000px;
+    height: 100vh;
 }
 
 #wrap {
@@ -43,36 +45,43 @@ body {
 /* ----------------- */
 nav {
     min-height: 50px;
-    background-color: var(--dark-accent-color);
-    color: var(--feuerrot);
+    color: black;
     /* position: fixed; */
     overflow: hidden;
     width: 100%;
 }
 #navContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
 }
 
 .nav-panel {
-    width: 100%;
+    min-width: 30%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
+    align-self: flex-end;
+}
+.left {
+    align-self: flex-start;
+}
+.right {
+    align-self: flex-end;
 }
 .nav-panel-item {
-    width: 25%;
-    background-color: rgb(212, 212, 212);
+    min-width: 50px;
+    display: flex;
+    align-items: center;
     color: black;
     height: 50px;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: none;
-    padding: 10px 0px 0px 0px; 
+    padding: 0px 10px 0px 10px; 
     transition: 0s background-color color;
     transition-duration: 0.25s;
 }
@@ -95,3 +104,36 @@ nav {
     }
 }
 
+/* HOME SECTION */
+
+#homeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+    background-color: #440404;
+}
+#middleDiv{
+    width:  clamp(var(--middle-div-max/2), 40vw, var(--middle-div-max)); 
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+#bigA{
+    width: clamp(150px, 30vw, 450px);
+    height:auto;
+}
+#searchBox{
+    height: 38px;
+    margin-top: 20px;
+    min-width:  clamp(150px, 30vw, 450px);
+
+}
+
+/* FOOTER */
+#footer {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+}

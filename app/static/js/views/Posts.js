@@ -14,10 +14,21 @@ export default class extends AbstractView {
         .then(res => res.json())
         .then(data => {console.log(data);  this.data = data;})
         .catch(error => console.log(error))
-        return `
-            <h1>Welcome to posts page!</h1>
-            <span>${JSON.stringify(this.data, null, 4)}</span>
+        const posts = this.data
+        console.log(posts, )
+        let html_string = '';
+        //you need to refactor this post object, because items in dictionary are in list - should be just items in dictionary or do enumerating to access proper item on an array
+        for (let post in posts){
+            for(let key in post){
+              console.log(post)
+                html_string += `<h2>${post[key]}</h2>`;
+            }
+        }
+        // html_string +=         `
+        //     <h1>Welcome to posts page!</h1>
+        //     <span>${JSON.stringify(this.data, null, 4)}</span>
         
-        `
+        // `
+        return html_string
     }
 }
