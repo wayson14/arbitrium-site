@@ -111,7 +111,7 @@ nav {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 50px);
-    background-color: #440404;
+    
 }
 #middleDiv{
     width:  clamp(var(--middle-div-max/2), 40vw, var(--middle-div-max)); 
@@ -130,6 +130,43 @@ nav {
     min-width:  clamp(150px, 30vw, 450px);
 
 }
+/* VIEWS */
+#app{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* POSTS VIEW */
+.post-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(200px, 50vw, 600px);
+    margin-top: 15px;
+}
+hr {
+    width: inherit;
+    color: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post-img{
+    width: clamp(200px, 50vw, 600px);
+    height:auto;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* FOOTER */
 #footer {
