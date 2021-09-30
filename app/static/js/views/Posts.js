@@ -10,19 +10,23 @@ export default class extends AbstractView {
     async getHTML() {
         
         
-        await fetch(this.api_url+'/posts')
+        await fetch(this.api_url+'/posts/')
         .then(res => res.json())
         .then(data => {console.log(data);  this.data = data;})
         .catch(error => console.log(error))
         const posts = this.data
         console.log(posts)
+        const cap = 10;
         let html_string = '';
         let post_object;
         let idx = 0
-        //you need to refactor this post object, because items in dictionary are in list - should be just items in dictionary or do enumerating to access proper item on an array
-        
+       
         for (let post in posts){
-            post_object = await this.parse_from_db(posts.post);
+            if (idx == cap){
+                break
+            }
+            
+            post_object = await this.parse_from_db(posts[post]);
             html_string += `
             <div class="post-item" id="postItem-${idx}"">
                 <h3 class="post-item-time">${post_object.time}</h3>
@@ -31,11 +35,12 @@ export default class extends AbstractView {
                 
                 <div class="post-img-container" id="imgContainer${idx}">
             `
-            console.log(post_object.images_urls)
+            // console.log(post_object.images_urls)
+
             let img_array = this.create_array(post_object.images_urls)
-            console.log(img_array[1])
+            // console.log(img_array[1])
             for (let link in img_array){
-                console.log(img_array[link])
+                // console.log(img_array[link])
                 html_string += `
                 <img src=${img_array[link]} class="post-img"/>
                 `
@@ -46,15 +51,14 @@ export default class extends AbstractView {
             `
             idx ++;
         }
-        
-        console.log(post_object);
-        
+
         
         return html_string
     }
 
     
     async parse_from_db(post) {
+        
         let parsed = "{";
         for (let idx in post){
             parsed += `"${Object.keys(post[idx])}" : "${Object.values(post[idx])}"`
@@ -63,8 +67,16 @@ export default class extends AbstractView {
             }
         }
         parsed += '}';
-        // console.log(parsed)
-        parsed = JSON.parse(parsed);
+        
+        console.log(parsed)
+        try{
+            parsed = JSON.parse(parsed)
+        } //error is called because json cant parse \n character -> \ needs to be replaced by \\
+        catch (error){
+            console.log(error)
+            
+        }
+
         return parsed;
     }
     create_array(array_str) {

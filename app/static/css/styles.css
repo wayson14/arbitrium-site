@@ -136,13 +136,14 @@ nav {
     flex-direction: column;
     align-items: center;
 }
+
 /* POSTS VIEW */
 .post-item{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: clamp(200px, 50vw, 600px);
-    margin-top: 15px;
+    margin-top: 20px;
 }
 hr {
     width: inherit;

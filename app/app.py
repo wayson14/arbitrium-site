@@ -33,18 +33,43 @@ class Post(Resource):
         
 
     def get(self, idx=0):
-        try:
-            response = {
-                "post" : [],
-            }
-            post = svc.get_post_by_index(idx)
-            for field in post:
-                pair = {field: str(post[field])}
-                response["post"].append(pair)
-                
-        except Exception as err:
-            return f"Error: {traceback.format_exc}", 500
-        return make_response(jsonify(response), 200)
+        if idx != 0:
+            try:
+                response = {
+                    "post" : [],
+                }
+                post = svc.get_post_by_index(idx)
+                for field in post:
+                    pair = {field: str(post[field])}
+                    response["post"].append(pair)
+                    
+
+                    
+            except Exception as err:
+                return f"Error: {traceback.format_exc()}", 500
+        else:
+            try:
+                response = {}
+                name_id = -1
+                posts = svc.get_all_posts()
+                for post in posts:
+                    name_id += 1
+                    response[str(name_id)] = []
+                    for field in post:
+                        pair = {field: str(post[field])}
+                        response[str(name_id)].append(pair)
+
+            except Exception as err:
+                print(traceback.format_exc())
+                return f"Error: {traceback.format_exc()}", 500
+        # print(response)
+
+        response = json.dumps(response, separators=(',', ':'))
+        response = response.replace("\\n", "\\\\n")
+        
+        #response is a string, so json.dumps makes a string
+
+        return make_response(response, 200)
 
     def post(self):
         return "Not implemented yet!", 501
