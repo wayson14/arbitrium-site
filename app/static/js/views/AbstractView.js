@@ -2,7 +2,7 @@ export default class {
     constructor(params) {
         this.params = params;
         this.api_url = '/api'
-        console.log(this.params);
+        // console.log(this.params);
     }
 
     setTitle(title) {
@@ -11,5 +11,9 @@ export default class {
 
     async getHTML() {
         return "";
+    }
+
+    async listener() {
+        return ;
     }
 }

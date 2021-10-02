@@ -3,10 +3,11 @@ import Home from "./views/Home.js";
 import About from "./views/About.js";
 import More from "./views/More.js";
 import PostView from "./views/PostView.js";
+import AbstractView from "./views/AbstractView.js";
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
-const getParams = match => {
+const getParams = (match) => {
     const values = match.result.slice(1);
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
 
@@ -23,6 +24,7 @@ const navigateTo = url => {
     router();
 };
 
+export default navigateTo;
 
 
 const router = async () => {
@@ -30,7 +32,8 @@ const router = async () => {
     const routes = [
         { path:"/", view: Home },
         { path:"/posts", view: Posts },
-        { path:"/posts/:id", view: PostView },
+        //{ path:"/posts?:keyphrase", view: Posts },
+        { path:"/posts/:keyphrase", view: Posts },
         { path:"/about", view: About },
         { path:"/documents", view: () => console.log("Viewing Documents") },
         { path:"/more", view: More }
@@ -68,8 +71,10 @@ const router = async () => {
     .then(async (view) => {
         // console.log("Matching view file has been found!");
         
-        let app_body = await view.getHTML();
+        
+        let app_body = await view.getHTML(); 
         document.querySelector("#app").innerHTML = app_body;
+        await view.listener();
     }) 
     .catch((error) => {
         console.log(error)
@@ -82,8 +87,8 @@ const router = async () => {
 };
 
 window.addEventListener("popstate", router);
-
 document.addEventListener("DOMContentLoaded", ()=>{
+    
     document.body.addEventListener("click", (event) => {
         if (event.target.matches("[data-link]")) {
             event.preventDefault();
@@ -92,3 +97,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     router();
 })
+
+
+
