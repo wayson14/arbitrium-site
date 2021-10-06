@@ -40,6 +40,8 @@ export default class extends AbstractView {
         let post_object;
         let idx = 0
         let post_count = 0;
+
+        
         for (let post in posts){
             if (idx == cap){
                 break
@@ -91,7 +93,7 @@ export default class extends AbstractView {
         
         if (post_count == 0){
 
-            navigateTo("/home");
+            navigateTo(`/home/${keyphrase} not found`);
             // const home = new Home;
             // html_string = await home.getHTML();
             // const middle_div = document.querySelector("#middleDiv");
@@ -100,8 +102,9 @@ export default class extends AbstractView {
             // Brak wyników!
             // </div>`
         }
-         
+
         return html_string
+        
     }
 
     

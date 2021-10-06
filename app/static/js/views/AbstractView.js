@@ -3,6 +3,7 @@ export default class {
         this.params = params;
         this.api_url = '/api'
         // console.log(this.params);
+        
     }
 
     setTitle(title) {

@@ -43,6 +43,7 @@ body {
 #wrap {
     display: block;
 }
+
 /* ----------------- */
 /* navbar */
 /* ----------------- */
@@ -124,8 +125,20 @@ nav {
 #bigA{
     width: clamp(150px, 30vw, 450px);
     height:auto;
+    /* animation: middleDiv-phaseOut 1s ease-out forwards alternate; */
 }
 
+@keyframes middleDiv-phaseOut {
+    0% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
 #searchBox{
     height: 38px;
     margin-top: 20px;
@@ -160,7 +173,15 @@ hr {
     margin-top: 10px;
 }
 
+@keyframes app-phase-in {
+    0%{
+        opacity: 0;
+    }
 
+    100%{
+        opacity: 1;
+    }
+}
 
 
 

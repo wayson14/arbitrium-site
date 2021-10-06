@@ -3,6 +3,7 @@ import Home from "./views/Home.js";
 import About from "./views/About.js";
 import More from "./views/More.js";
 import PostView from "./views/PostView.js";
+import Documents from "./views/Documents.js";
 import AbstractView from "./views/AbstractView.js";
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -31,11 +32,12 @@ const router = async () => {
     
     const routes = [
         { path:"/", view: Home },
+        {  path:"/home/:message", view: Home },
         { path:"/posts", view: Posts },
         //{ path:"/posts?:keyphrase", view: Posts },
         { path:"/posts/:keyphrase", view: Posts },
         { path:"/about", view: About },
-        { path:"/documents", view: () => console.log("Viewing Documents") },
+        { path:"/documents", view: Documents },
         { path:"/more", view: More }
     ];
 
