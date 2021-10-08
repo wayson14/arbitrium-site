@@ -38,7 +38,8 @@ export default class extends AbstractView {
         const cap = 10;
         let html_string = '';
         let post_object;
-        let idx = 0
+        let idx = 0;
+        let img_idx = 0;
         let post_count = 0;
 
         
@@ -81,9 +82,11 @@ export default class extends AbstractView {
             for (let link in img_array){
                 // console.log(img_array[link])
                 html_string += `
-                <img src=${img_array[link]} class="post-img"/>
+                <img src=${img_array[link]} class="post-img" id="img${img_idx}"/>
                 `
+                img_idx ++;
             }
+            img_idx = 0;
             html_string += `
                 </div>
             </div>
@@ -135,6 +138,46 @@ export default class extends AbstractView {
         array_str = array_str.slice(1, -1,);
         let arr = array_str.split(/[,]/);
         return arr
+    }
+    async listener(){
+    document.body.addEventListener("click", (event) => {
+
+        //listening for img click
+        if (event.target.matches("[id^='img']")) {
+            const selectedImg = event.target;
+            event.preventDefault();
+            this.clickedImg(selectedImg.src);
+                        
+        }
+    })
+    } 
+
+    async clickedImg(imgUrl){
+        const wrap = document.querySelector("#wrap");
+        const shadeDiv = document.createElement("div");
+        const shadeImg = document.createElement("img")
+
+
+        shadeDiv.id = "shadeDiv"; 
+        shadeDiv.style.background = "rgba(0, 0, 0, 0.8)"
+        shadeDiv.style.height = "100vh";
+        shadeDiv.style.width = "100vw";
+        shadeDiv.style.zIndex = "2";
+        shadeDiv.style.position = "fixed";
+
+        shadeImg.id = "shadeImg";
+        shadeImg.src = imgUrl;
+
+        shadeDiv.appendChild(shadeImg);
+        wrap.insertBefore(shadeDiv, wrap.childNodes[0]);
+        
+        document.body.addEventListener("click", event => {
+           if (event.target.matches("[id^='shadeImg']") != true){
+               shadeDiv.style.display = "none";
+           } 
+           
+        }); 
+        return;
     }
     
 }

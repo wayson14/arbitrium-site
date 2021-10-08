@@ -5,7 +5,7 @@ export default class extends AbstractView {
         super(params);
         this.setTitle("More");
     }
-
+   
     async getHTML() {
         let html_string = "";
         //"../../../data/documents/mongo_setup.py download="MONGO""
