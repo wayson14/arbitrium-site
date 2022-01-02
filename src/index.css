@@ -27,7 +27,7 @@ body {
 
 .navbar {
   background-color: var(--dark-main);
-  height: var(--navbar-height);
+  min-height: var(--navbar-height);
 }
 .nav-name {
   color: var(--light-main);
@@ -47,7 +47,8 @@ body {
 /*Sidebar.js*/
 .sidebar {
   height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  
   background-color: var(--dark-main);
   flex-direction: column;
 }
@@ -63,16 +64,18 @@ body {
   flex-direction: column;
 }
 .content {
-  z-index: 1;
+  z-index: 2;
 }
 
 /* COMPONENTS */
 /* Bubble.js */
 .point {
-  position: fixed;
-  top: var(--navbar-height);
-  left: var(--sidebar-width);
+  position: absolute;
+  z-index: -1;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
 }
+
 .bubble {
   width: var(--bubble-size);
   height: var(--bubble-size);
@@ -113,3 +116,21 @@ body {
   text-decoration: underline;
   text-align: end;
 }
+
+/*Post.js*/
+.post-container {
+  justify-content: space-between;
+}
+.post-img {
+  width: 50%;
+}
+.post-text {
+  width: 45%;
+}
+.post {
+  box-sizing:content-box ;
+  margin: 2em;
+  
+  /* z-index: 2; */
+}
+

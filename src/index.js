@@ -13,7 +13,7 @@ import Navbar from './components/Navbar.js';
 import Sidebar from './components/Sidebar.js';
 import Curve from './components/Curve';
 
-import bigA from './assets/bigA.svg'
+// import bigA from './assets/bigA.svg'
 ReactDOM.render(
   
   <React.StrictMode>
@@ -22,11 +22,11 @@ ReactDOM.render(
     <Router>  
       <Navbar></Navbar>
       <div className="container">
-        <Curve></Curve>
         <Sidebar></Sidebar>
         <div className="content">
+          <Curve/>
           <Routes>
-            <Route path="/" element={<App />}/>
+            <Route path="/" element={<Posts />}/>
             <Route path="/posts" element={<Posts />}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/downloads" element={<Downloads />}/>
