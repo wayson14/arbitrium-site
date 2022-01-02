@@ -12,7 +12,7 @@
 //     }
 // } -->
 import React from 'react'
-class bigA extends React.Component {
+class BigA extends React.Component {
     render() {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">

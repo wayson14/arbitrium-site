@@ -9,35 +9,32 @@ const Posts = () => {
         title: "Tytuł",
         content: "Lorem ipsum",
     };
-    let posts = [];
-    
-    const getPostCount = new Promise((resolve) => {
-        resolve(3);
-    });
-
-    function inc() {
-        getPostData.then(d => posts.push(<Post postData={d}/>))
-        getPostCount.then(count => fillPostArray(count));
-    };
-    const getPostData = new Promise((resolve) => {
-            resolve (data);
+   
+    const getPost = (id) => {
+        return new Promise ((resolve, reject) => {
+            resolve(data);
         });
-    
-    const fillPostArray = (count) =>{
-        for (let i = 0; i < count; i++){
-            getPostData.then(data => posts.push(<Post postData={data}/>));
-        }
-    };
+    }
 
-    // let posts = [];
+    const addPost = (data) => {
+        return new Promise ((resolve) => {
+            posts.push(<Post postData={data}/>);
+            resolve(posts);
+        })
+    }
     
+    let posts = [];
+
+    for(let i = 0; i < 5; i++){
+        getPost(i).then(data => addPost(data))
+    }
     
     
 
     return (
         <div className="posts">
-            asdfasdfassasdfasdf{x}
-            <button onClick={(e) => inc()}></button>
+            {data.title}
+            <button onClick={(e) => console.log(data) }></button>
             {posts}
         </div>
     )
