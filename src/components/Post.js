@@ -1,12 +1,15 @@
-import React from 'react'
+import {useState, React} from 'react'
 
-const Post = () => {
+const Post = ({postData}) => {
+    const [title, setTitle] = useState(postData.title)
+    const [content, setContent] = useState(postData.content)
+    const [imgUrl, setImgUrl] = useState(postData.imgUrl)
     return (
         <div className='post-container container post'>
-            <img className='post-img' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1"/>
+            <img className='post-img' src={imgUrl}/>
             <div className='container column post-text'>
-                <h1>Tytuł</h1>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <h1>{title}</h1>
+                <p>{content}</p>
             </div>
         </div>
     )
