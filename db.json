@@ -1,7 +1,7 @@
 {
     "posts": [
-        { "id": 1, "title": "json-server", "author": "typicode", "content": "Lorem ipsum dolor sit amet.", "imgUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1", "date": "02.01.2022"},
-        { "id": 2, "title": "json-serwer", "author": "typicode", "content": "Lorem ipsum dolor sit amet.", "imgUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1", "date": "02.01.2022"}
+        { "id": 1, "title": "Lis", "author": "typicode", "content": "Lorem ipsum dolor sit amet.", "imgUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1", "date": "02.01.2022"},
+        { "id": 2, "title": "Wilk", "author": "typicode", "content": "Lorem ipsum dolor sit amet.", "imgUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l78hRMO13EJFk8lBXgf88Wk1C1HstwQ7c-x1qQ%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1", "date": "02.01.2022"}
     ],
     "comments": [
       { "id": 1, "body": "some comment", "postId": 1 }

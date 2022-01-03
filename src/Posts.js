@@ -1,13 +1,14 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, useLayoutEffect} from 'react'
 import Post from './components/Post.js'
 const Posts = () => {
 
     const [postsArray, setPostsArray] = useState([]);
-    const data = {
-        imgUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1",
-        title: "Tytuł",
-        content: "Lorem ipsum",
-    };
+    const [fetchedPosts, setFetchedPosts] = useState(false);
+    // const data = {
+    //     imgUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y-70m9WxY7PTwGdYRSrePwHaGc%26pid%3DApi&f=1",
+    //     title: "Tytuł",
+    //     content: "Lorem ipsum",
+    // };
    
     const getPost = (id) => {
         return new Promise ((resolve, reject) => {
@@ -19,43 +20,45 @@ const Posts = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    
                     resolve(data)});
         });
     }
 
     const addPost = (data) => {
         return new Promise ((resolve) => {
-            posts.push(<Post postData={data}/>);
-            resolve(posts);
-        })
-    }
-
-    let posts = [];
-    
-    const fillPosts = (count) => {
-        return new Promise ((resolve) => {
-            for(let i = 1; i < count+1; i++){
-                getPost(i).then(d => addPost(d))
-            }
-            //When it's removed suddenly works. Gotta find our why tommorow!
+            postsArray.push(<Post postData={data}/>);
             resolve(true);
         })
     }
+
     
+    const fillPosts = (count) => {
+        return new Promise ((resolve) => {
+            let cycles = 0;
+            for(let i = 1; i < count+1; i++){
+                getPost(i).then(data => addPost(data)).then(()=>cycles++).then(()=>console.log(cycles))
+                    .then(()=>{cycles === count && setFetchedPosts(true)})
+                    .then(()=> {cycles === count && resolve(postsArray)})
+            }
+            //When it's removed suddenly works. Gotta find our why tommorow!
+            
+        })
+    }
+ 
     
 
     useEffect (() => {
-        fillPosts(2)
-        .then(()=>setPostsArray(posts));
-        console.log(posts);
-    }, [])
+        {!fetchedPosts && fillPosts(2).then((x)=>console.log([...x]))}
+        return () => {
+            {fetchedPosts && setPostsArray([])};
+        }
+    }, [fetchedPosts])
     
     
 
     return (
         <div className="posts">
-            {postsArray}
+            {postsArray && [...postsArray]}
         </div>
     )
 }
