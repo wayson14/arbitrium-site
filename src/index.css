@@ -13,7 +13,7 @@
  
 }
 body {
-  font-size: 12px;
+  font-size: 16px;
   box-sizing: border-box;
   margin: 0;
   font-family: neuton;
@@ -65,6 +65,7 @@ body {
 }
 .content {
   z-index: 2;
+  width: 100%;
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
 }
@@ -120,7 +121,7 @@ body {
 }
 /*Posts.js*/
 .posts{
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 1em;
 }
 /*Post.js*/
