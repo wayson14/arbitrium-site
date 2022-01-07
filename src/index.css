@@ -1,6 +1,6 @@
 :root {
   --dark-main: #000;
-  --light-main: #fff;
+  --light-main: hsl(0, 32%, 89%);
   --feuerrot: #ED1C24;
   --dark-neutral: #282828;
   --light-neutral: #B4B4B4;
@@ -12,11 +12,13 @@
   --searchbar-width: 160px;
  
 }
+/* TAGS */
 body {
   font-size: 16px;
   box-sizing: border-box;
   margin: 0;
   font-family: neuton;
+  background-color: var(--light-main);
 }
 
 
@@ -105,39 +107,86 @@ body {
 }
 
 /* UnderlinedBtn.js */
+.link {
+  text-decoration: none;
+}
+
 .underlined-btn {
+  color: var(--light-neutral);
+  text-decoration: none;
   padding-top: 0.2em;
   position: static;
   font-size: 1.8em;
-  text-decoration: underline;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;;
   text-align: end;
   transition-duration: 200ms;
 }
 .underlined-btn:hover {
   cursor: pointer;
   color: var(--feuerrot);
-  text-decoration: underline;
   text-align: end;
 }
 /*Posts.js*/
 .posts{
-  font-size: 1.5rem;
   margin: 1em;
 }
-/*Post.js*/
+/*Post.js, About.js*/
 .post-container {
   justify-content: space-between;
+  align-content: center;
 }
 .post-img {
-  width: 50%;
+  max-width: 50%;
+  border-radius: 3px;
 }
 .post-text {
   width: 45%;
+  font-family: lato;
+}
+.content-font {
+  font-family: lato;
+}
+.post-title {
+  font-family: neuton;
 }
 .post {
   box-sizing:content-box ;
   margin: 2em;
-  
   /* z-index: 2; */
 }
+
+/* About.js */
+.about-img {
+  /* height: calc(100vh - var(--navbar-height)); */
+  /* height: 125vh; */  
+  position: relative;
+  width: 50%;
+  border-radius: 3px;
+}
+
+/* More.js, Downloads.js */
+.item-entry {
+  border: 1px solid black;
+  margin: 1rem;
+  border-radius: 3px;
+  width: 450px;
+  padding: 0.2em;
+  
+}
+.item-entry-icon {
+  display: flex;
+  align-content: center;
+  font-size: 1.3em;
+
+}
+.item-text {
+  width: 100%;
+  align-self: center;
+}
+.flex-end {
+  align-self: flex-end;
+  justify-self: center;
+}
+
 

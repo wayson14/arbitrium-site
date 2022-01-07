@@ -9,10 +9,11 @@ const Posts = () => {
     //     title: "Tytuł",
     //     content: "Lorem ipsum",
     // };
-   
+    
+    const queryUrl = "http://localhost:7000/posts/"
     const getPost = (id) => {
         return new Promise ((resolve, reject) => {
-            fetch(`http://localhost:7000/posts/${id}`, {
+            fetch(`${queryUrl}${id}`, {
                 // headers : { 
                 //     'Content-Type': 'application/json; charset=utf-8',
                 //     'Accept': 'application/json'

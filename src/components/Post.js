@@ -7,9 +7,9 @@ const Post = ({postData}) => {
     return (
         <div className='post-container container post'>
             <img className='post-img' src={imgUrl}/>
-            <div className='container column post-text'>
-                <h1>{title}</h1>
-                <p>{content}</p>
+            <div className='container post-text column '>
+                <h1 className='post-title'>{title}</h1>
+                <div>{content}</div>
             </div>
         </div>
     )
